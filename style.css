@@ -1,0 +1,460 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    overflow: hidden;
+    position: relative;
+
+    background:
+        radial-gradient(ellipse at 50% 45%, #571323 0%, #260812 45%, #090609 100%);
+
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+/* Decorative roses */
+
+body::before,
+body::after {
+    position: fixed;
+    font-size: clamp(100px, 18vw, 220px);
+    opacity: 0.16;
+    pointer-events: none;
+    filter: drop-shadow(0 0 25px #a51d37);
+    animation: roseFloat 7s ease-in-out infinite;
+}
+
+body::before {
+    content: "🌹";
+    top: 5%;
+    left: 3%;
+    transform: rotate(-20deg);
+}
+
+body::after {
+    content: "🌹";
+    bottom: 3%;
+    right: 3%;
+    transform: rotate(20deg);
+    animation-delay: 2s;
+}
+
+/* Main invitation */
+
+.invitation {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 620px;
+    padding: 75px 35px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(145deg,
+        rgba(91, 21, 39, 0.65),
+        rgba(18, 7, 13, 0.92));
+
+    border: 1px solid rgba(220, 180, 125, 0.65);
+    border-radius: 8px;
+
+    outline: 1px solid rgba(220, 180, 125, 0.15);
+    outline-offset: 10px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.7),
+        0 0 60px rgba(140, 20, 45, 0.15);
+
+    animation: appear 1.5s ease;
+}
+
+/* Decorative top line */
+
+.invitation::before {
+    content: "✦  ─────────  ✦";
+    display: block;
+    color: #d5ad78;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+}
+
+.heart {
+    font-size: 75px;
+    color: #d8a76c;
+    margin-bottom: 20px;
+    animation: heartbeat 2s infinite;
+    text-shadow: 0 0 30px rgba(220, 120, 140, 0.5);
+}
+
+.subtitle {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 6px;
+    color: #d6b58b;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 9vw, 72px);
+    font-weight: 500;
+    line-height: 1.1;
+    color: #f0d4a9;
+    margin-bottom: 30px;
+    text-shadow: 0 3px 25px rgba(0, 0, 0, 0.4);
+}
+
+.question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(25px, 5vw, 34px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff0e5;
+    margin-bottom: 45px;
+}
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    min-width: 145px;
+    padding: 16px 30px;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+#yesBtn {
+    border: 1px solid #e2bd8b;
+    background: linear-gradient(135deg, #e4c18e, #b98951);
+    color: #28100f;
+
+    box-shadow: 0 8px 30px rgba(193, 143, 83, 0.2);
+}
+
+#yesBtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(218, 175, 111, 0.4);
+    background: #f1d6a9;
+}
+
+#noBtn {
+    border: 1px solid #c59a79;
+    background: transparent;
+    color: #f0d4a9;
+}
+
+#noBtn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.footer {
+    margin-top: 50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #c7a9a0;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes roseFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -15px;
+    }
+}
+
+/* Mobile responsive */
+
+@media (max-width: 480px) {
+    body {
+        padding: 25px;
+    }
+
+    .invitation {
+        padding: 55px 20px;
+    }
+
+    .invitation::before {
+        letter-spacing: 2px;
+    }
+
+    .buttons {
+        gap: 12px;
+    }
+
+    button {
+        min-width: 125px;
+        padding: 14px 18px;
+    }
+
+    .footer {
+        margin-top: 35px;
+    }
+}
+
+/* DINNER PLANNING AND CONFIRMATION */
+
+.planning-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.plan-item {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.plan-item label {
+    color: #e8c99e;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.plan-item input,
+.plan-item select {
+    width: 100%;
+    padding: 14px;
+    background: #241019;
+    color: #f5dfc1;
+    border: 1px solid rgba(220, 180, 125, 0.5);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.plan-item select option {
+    background: #241019;
+    color: white;
+}
+
+.plan-item input:focus,
+.plan-item select:focus {
+    border-color: #e5bd87;
+}
+
+#confirmBtn {
+    width: 100%;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #e4c18e, #b98951);
+    color: #28100f;
+    border: none;
+}
+
+#confirmBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(218, 175, 111, 0.3);
+}
+
+.details {
+    margin-top: 35px;
+    text-align: left;
+    border-top: 1px solid rgba(220, 180, 125, 0.4);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 5px;
+    border-bottom: 1px solid rgba(220, 180, 125, 0.2);
+    font-size: 12px;
+}
+
+.detail-item span {
+    color: #d6b58b;
+}
+
+.detail-item strong {
+    color: #fff0e5;
+    font-weight: 500;
+    text-align: right;
+}
+
+@media (max-width: 480px) {
+    .detail-item {
+        font-size: 11px;
+    }
+
+    .plan-item input,
+    .plan-item select {
+        font-size: 12px;
+    }
+}
+
+/* DINNER PLANNING */
+
+.planning-content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.plan-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.plan-item label {
+    color: #e8c99e;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.plan-item select {
+    width: 100%;
+    padding: 15px;
+    background: #241019;
+    color: #f5dfc1;
+    border: 1px solid rgba(220, 180, 125, 0.5);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.plan-item select:focus {
+    border-color: #e5bd87;
+}
+
+.plan-item select option {
+    background: #241019;
+    color: white;
+}
+
+.plan-item select optgroup {
+    background: #241019;
+    color: #e5bd87;
+}
+
+.fixed-option {
+    padding: 15px;
+    background: rgba(220, 180, 125, 0.08);
+    border: 1px solid rgba(220, 180, 125, 0.5);
+    color: #f0d4a9;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.dress-message {
+    padding: 20px;
+    background: rgba(220, 180, 125, 0.07);
+    border-left: 2px solid #d6ae78;
+    color: #f0d4a9;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+}
+
+#confirmBtn {
+    width: 100%;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #e4c18e, #b98951);
+    color: #28100f;
+    border: none;
+}
+
+#confirmBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(218, 175, 111, 0.3);
+}
+
+/* CONFIRMATION DETAILS */
+
+.details {
+    margin-top: 35px;
+    text-align: left;
+    border-top: 1px solid rgba(220, 180, 125, 0.4);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 5px;
+    border-bottom: 1px solid rgba(220, 180, 125, 0.2);
+    font-size: 13px;
+}
+
+.detail-item span {
+    color: #d6b58b;
+}
+
+.detail-item strong {
+    color: #fff0e5;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+    .planning-content {
+        gap: 18px;
+    }
+
+    .dress-message {
+        font-size: 19px;
+    }
+
+    .detail-item {
+        font-size: 12px;
+    }
+}

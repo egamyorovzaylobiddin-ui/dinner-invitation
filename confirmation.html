@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Dinner Is Confirmed ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="invitation confirmation">
+
+        <div class="heart">❤️</div>
+
+        <p class="subtitle">A NIGHT TO REMEMBER</p>
+
+        <h1>It's Confirmed, Feruza!</h1>
+
+        <p class="question">
+            I can't wait to spend this special evening with you.
+        </p>
+
+        <div class="details">
+
+            <div class="detail-item">
+                <span>📍 Restaurant</span>
+                <strong id="showLocation"></strong>
+            </div>
+
+            <div class="detail-item">
+                <span>📅 Date</span>
+                <strong id="showDate"></strong>
+            </div>
+
+            <div class="detail-item">
+                <span>🕕 Time</span>
+                <strong id="showTime"></strong>
+            </div>
+
+            <div class="detail-item">
+                <span>🌹 Dress Code</span>
+                <strong id="showDress"></strong>
+            </div>
+
+            <div class="detail-item">
+                <span>🍽️ Food Choice</span>
+                <strong id="showFood"></strong>
+            </div>
+
+        </div>
+
+        <p class="footer">
+            Looking forward to our beautiful evening. 🌹
+        </p>
+
+    </main>
+
+    <script>
+        const dinner = JSON.parse(
+            sessionStorage.getItem("dinnerDetails") || "null"
+        );
+
+        if (dinner) {
+
+            document.getElementById("showLocation").textContent =
+                dinner.location;
+
+            const date = new Date(dinner.date + "T12:00:00");
+
+            document.getElementById("showDate").textContent =
+                date.toLocaleDateString("en-US", {
+                    weekday: "long",
+                    month: "long",
+                    day: "numeric"
+                });
+
+            document.getElementById("showTime").textContent =
+                dinner.time + " (6:00 PM)";
+
+            document.getElementById("showDress").textContent =
+                dinner.dress;
+
+            document.getElementById("showFood").textContent =
+                dinner.food;
+
+        } else {
+
+            document.querySelector(".question").textContent =
+                "Please select your dinner preferences first. ❤️";
+
+        }
+    </script>
+
+</body>
+</html>
