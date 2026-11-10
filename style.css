@@ -13,7 +13,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 25px;
-    overflow: hidden;
+    overflow-x: hidden;
+overflow-y: auto;
     position: relative;
 
     background:
